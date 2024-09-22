@@ -1,5 +1,5 @@
 #Завдання № 1
-path = 'salary_file.txt'
+path = 'salary_file.txt' # Зміна шляху до файлу
 def total_salary(path):
     total = 0 # Загальна сума зарплат
     workers = 0 # Кількість робітників
@@ -11,16 +11,16 @@ def total_salary(path):
                     salary = float(salary)  # Перетворюємо зарплату на число
                     total += salary  # Обрахунок заробітньої плати загалом
                     workers += 1 # Підрахунок робітників 
-                except ValueError:
-                    print(f"Помилка у форматі даних: {line.strip()}. Пропускаю цей рядок.")
+                except ValueError: # Перевірка формату рядка у файлі
+                    print(f"Помилка у форматі даних: {line.strip()}.")
             if workers > 0:
                     average = total / workers  # Обрахунок середньої зарплати
             else:
                 average = 0  # Якщо немає робітників, середня зарплата = 0
-    except FileNotFoundError:
-        print(f"Файл {path} не знайдено.")
+    except FileNotFoundError: # Обробка випадку відсутності файлу
+        print(f"Файл {path} не знайдено.") 
         return 0, 0
-    except IOError:
+    except IOError: # Перевірка доступу до файлу
         print(f"Помилка при відкритті файлу {path}.")
         return 0, 0
     
